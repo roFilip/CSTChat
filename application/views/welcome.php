@@ -4,4 +4,7 @@
         Password: <input type="password" name="pwrd"><br>
         <input type="submit" value="Login">
     </form>
+    <p>
+        <a href="/roomlist">RoomList</a>
+    </p>
 </table>
