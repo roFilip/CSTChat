@@ -15,15 +15,16 @@ and open the template in the editor.
 
 body {
         background-color: #fff;
-        margin: 40px;
         font: 13px/20px normal Helvetica, Arial, sans-serif;
         color: #4F5155;
+        margin: 0 auto;
 }
 
 a {
         color: #003399;
         background-color: transparent;
         font-weight: normal;
+        text-decoration: none;
 }
 
 h1 {
@@ -47,6 +48,12 @@ code {
         padding: 12px 10px 12px 10px;
 }
 
+ul {
+    list-style: none;
+    list-style-type: none;
+    padding: 0;
+}
+
 #body {
         margin: 0 15px 0 15px;
 }
@@ -64,4 +71,8 @@ p.footer {
         margin: 10px;
         border: 1px solid #D0D0D0;
         box-shadow: 0 0 8px #D0D0D0;
+}
+
+#footer {
+    margin-top: 10px;
 }

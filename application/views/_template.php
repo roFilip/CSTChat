@@ -11,7 +11,7 @@
     <body>
         <div id="wrapper">
             <div id="header">
-                <span class="myhead">CST Chat</span>
+                <a href="/" class="myhead">CST Chat</a>
                 <span class="mynav">
                     <ul>
                       
@@ -23,7 +23,7 @@
                 {content}
             </div>
             <div id="footer" class="span12">
-                Copyright &copy; 2014,  <a href="mailto:someone@somewhere.com">Me</a>.
+                Copyright &copy; 2014,  <a href="mailto:someone@somewhere.com">Team Turbo</a>.
             </div>
         </div>
         <script type="text/javascript" src="assets/js/jquery-1.11.0.min.js"></script> 
