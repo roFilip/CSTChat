@@ -1,0 +1,31 @@
+.leftchat, .leftchat * {
+    text-align: left;
+    vertical-align:middle;
+}
+.rightchat, .rightchat * {
+    text-align: right;
+    vertical-align:middle;
+}
+.chattext {
+    margin-left: 1em; margin-right: 1em;
+}
+
+#msgbox {
+    margin: 0 auto;
+    border: 1px solid #D0D0D0;
+    box-shadow: 0 0 8px #0A65C9;
+}
+.lefttextarea, .msgboxelement {
+    display: table-cell;
+    vertical-align: middle;
+}
+.lefttextarea {
+    width: 100%;
+}
+.lefttextarea input {
+    width: 100%;
+}
+
+#ChatRooms {
+    width: 500px;
+}

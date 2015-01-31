@@ -2,9 +2,9 @@
 
 class ChatRoom extends Application {
     
-        function __construct() {
-            parent::__construct();
-        }
+    function __construct() {
+        parent::__construct();
+    }
 
 	/**
 	 * Index Page for this controller.
@@ -29,7 +29,18 @@ class ChatRoom extends Application {
                 
                 $chats = array();
                 foreach ($source as $record) {
-                    $chats[] = array('who' => $record['who'], 'pic' => $record['pic'], 'href' => $record['where'], 'what' => $record['what'], 'position' => $record['position']);
+                	$what = '';
+                	if ($record['position'] == 'leftchat')
+                		$what = '<img src="assets/data/' . $record['pic'] . '" height="50%"/>' . '<span class="chattext">' . $record['what'] . '</span>';
+                	else
+                		$what = '<span class="chattext">' . $record['what'] . '</span>' . '<img src="assets/data/' . $record['pic'] . '" height="50%"/>';
+
+                    $chats[] = array(
+                    	'who' => $record['who'],
+                    	'href' => $record['where'],
+                    	'position' => $record['position'],
+                    	'what' => $what
+                    	);
                 }
                 $this->data['chat'] = $chats;
                 

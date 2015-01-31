@@ -2,24 +2,23 @@
 
 <div id="body">
     {chat}
-	<ul>
-		<li>
-			<div class="{position}">
-				<span>{what}</span>
-				<img src="assets/data/{pic}" height="50%"/>
-			</div>
-		</li>
-	</ul>
+    <ul>
+        <li>
+            <div class="{position}">
+            {what}
+            </div>
+        </li>
+    </ul>
     {/chat}
 </div>
 
-<div id="msgbox" class="span12 container">
+<div id="msgbox">
 <form action="post">
-	<div class="lefttextarea">
-    	<input type="text" name="msg" class="floatleft">
+    <div class="lefttextarea">
+        <input type="text" name="msg" class="floatleft">
     </div>
     <div class="msgboxelement">
-    	<input type="submit" value="Send" class="floatright">
+        <input type="submit" value="Send" class="floatright">
     </div>
 </form>
 </div>
