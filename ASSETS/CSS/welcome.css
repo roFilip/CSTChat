@@ -106,3 +106,7 @@ p.footer {
 .lefttextarea input {
     width: 100%;
 }
+
+#ChatRooms {
+    width: 500px;
+}
