@@ -3,9 +3,9 @@
     <head>
         <title>{pagetitle}</title>
         <meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"/>
-        <link rel="stylesheet" type="text/css" media="all" href="assets/css/welcome.css" />
-        <link rel="stylesheet" type="text/css" media="all" href="assets/css/text.css" />
         <link rel="stylesheet" type="text/css" media="all" href="assets/css/style.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="assets/css/chatroom.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="assets/css/text.css" />
         <link rel="stylesheet" type="text/css" media="all" href="assets/css/lightbox.css" />
     </head>
     <body>
