@@ -1,26 +1,47 @@
-<?php
+<h1>Data Comm 2015</h1>
 
-defined('BASEPATH') OR exit('No direct script access allowed');
-?><!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<title>Welcome to CodeIgniter</title>
-
-	<link rel ="stylesheet" type="text/css" href="ASSETS/CSS/welcome.css">
-
-</head>
-<body>
-
-<div id="container">
-	<h1>Chat room #_</h1>
-
-	<div id="body">
-		<p>This will be a chatroom</p>
-	</div>
-
-	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
+<div id="body">
+	<ul>
+		<li>
+			<div class="rightchat">
+				<span>I needs ze help on win32 plis!</span>
+				<img src="assets/data/profile_placeholder_25.png" height="50%"/>
+			</div>
+		</li>
+		<li>
+			<div class="leftchat">
+				<img src="assets/data/profile_placeholder_25.png" height="50%"/>
+				<span>I'm struggling as well</span>
+			</div>
+		</li>
+		<li>
+			<div class="rightchat">
+				<span>How are you supposed to get the text from an edit box??</span>
+				<img src="assets/data/profile_placeholder_25.png" height="50%"/>
+			</div>
+		</li>
+		<li>
+			<div class="leftchat">
+				<img src="assets/data/profile_placeholder_25.png" height="50%"/>
+				<span>idk... black magic?</span>
+			</div>
+		</li>
+		<li>
+			<div class="leftchat">
+				<img src="assets/data/profile_placeholder_25.png" height="50%"/>
+				<span>it always works!</span>
+			</div>
+		</li>
+	</ul>
 </div>
 
-</body>
-</html>
+<div id="msgbox" class="span12 container">
+<form action="post">
+	<div class="lefttextarea">
+    	<input type="text" name="msg" class="floatleft">
+    </div>
+    <div class="msgboxelement">
+    	<input type="submit" value="Send" class="floatright">
+    </div>
+</form>
+</div>

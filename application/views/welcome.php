@@ -6,5 +6,6 @@
     </form>
     <p>
         <a href="/roomlist">RoomList</a>
+        <a href="/chatroom">ChatRoom</a>
     </p>
 </table>

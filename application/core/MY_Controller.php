@@ -9,9 +9,6 @@ class Application extends CI_Controller {
 
     protected $data = array();      // parameters for view components
     protected $id;        // identifier for our content
-    protected $choices = array(// our menu navbar
-    'Home' => '/', 'Gallery' => '/gallery', 'About' => '/about'
-    );
 
     /**
      * Constructor.
@@ -21,7 +18,7 @@ class Application extends CI_Controller {
     {
         parent::__construct();
         $this->data = array();
-        $this->data['pagetitle'] = 'Demo Contact Manager';
+        $this->data['pagetitle'] = 'CST Chat';
     }
 
     /**
