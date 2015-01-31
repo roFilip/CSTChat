@@ -14,10 +14,10 @@
 
 <div id="msgbox">
 <form action="post">
-    <div class="lefttextarea">
+    <div class="msgboxelement msgtextarea">
         <input type="text" name="msg" class="floatleft">
     </div>
-    <div class="msgboxelement">
+    <div class="msgboxelement msgsendbtn">
         <input type="submit" value="Send" class="floatright">
     </div>
 </form>
