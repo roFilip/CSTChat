@@ -1,6 +1,10 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class ChatRoom extends Application {
+    
+        function __construct() {
+            parent::__construct();
+        }
 
 	/**
 	 * Index Page for this controller.
@@ -20,6 +24,17 @@ class ChatRoom extends Application {
 	public function index()
 	{
 		$this->data['pagebody'] = 'chatroom';
+                
+                $source = $this->chat->all();
+                
+                $chats = array();
+                foreach ($source as $record) {
+                    $chats[] = array('who' => $record['who'], 'pic' => $record['pic'], 'href' => $record['where'], 'what' => $record['what'], 'position' => $record['position']);
+                }
+                $this->data['chat'] = $chats;
+                
+                $this->data = array_merge($this->data, $source);
+                
 		$this->render();
 	}
 }
