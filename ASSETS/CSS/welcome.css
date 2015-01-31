@@ -28,9 +28,9 @@ a {
 }
 
 h1 {
-        color: #444;
+        color: #ddd;
         background-color: transparent;
-        border-bottom: 1px solid #D0D0D0;
+        border-bottom: 1px solid #555;
         font-size: 19px;
         font-weight: normal;
         margin: 0 0 14px 0;
@@ -75,4 +75,34 @@ p.footer {
 
 #footer {
     margin-top: 10px;
+}
+
+.leftchat {
+    text-align: left;
+}
+
+.rightchat {
+    text-align: right;
+}
+
+#msgbox {
+    margin: 0 auto;
+    border: 1px solid #D0D0D0;
+    box-shadow: 0 0 8px #D0D0D0;
+    display: table;
+    width: 100%;
+}
+
+.lefttextarea, .msgboxelement {
+    display: table-cell;
+    vertical-align: middle;
+    width: auto;
+}
+
+.lefttextarea {
+    width: 100%;
+}
+
+.lefttextarea input {
+    width: 100%;
 }
