@@ -24,28 +24,33 @@ class ChatRoom extends Application {
 	public function index()
 	{
 		$this->data['pagebody'] = 'chatroom';
-                
-                $source = $this->chat->all();
-                
-                $chats = array();
-                foreach ($source as $record) {
-                	$what = '';
-                	if ($record['position'] == 'leftchat')
-                		$what = '<img src="assets/data/' . $record['pic'] . '" height="50%"/>' . '<span class="chattext">' . $record['what'] . '</span>';
-                	else
-                		$what = '<span class="chattext">' . $record['what'] . '</span>' . '<img src="assets/data/' . $record['pic'] . '" height="50%"/>';
 
-                    $chats[] = array(
-                    	'who' => $record['who'],
-                    	'href' => $record['where'],
-                    	'position' => $record['position'],
-                    	'what' => $what
-                    	);
-                }
-                $this->data['chat'] = $chats;
-                
-                $this->data = array_merge($this->data, $source);
-                
+		// retrieve all of the chats available
+        $source = $this->chat->all();
+        
+        $chats = array();
+
+        // populate the chats array
+        foreach ($source as $record) {
+        	$what = ''; // holder for the 'what' data
+
+        	// fill the appropriate information into 'what' according to its position
+        	if ($record['position'] == 'leftchat')
+        		$what = '<img src="assets/data/' . $record['pic'] . '" height="50%"/>' . '<span class="chattext">' . $record['what'] . '</span>';
+        	else if ($record['position'] == 'rightchat')
+        		$what = '<span class="chattext">' . $record['what'] . '</span>' . '<img src="assets/data/' . $record['pic'] . '" height="50%"/>';
+
+            $chats[] = array(
+            	'who' => $record['who'],
+            	'href' => $record['where'],
+            	'position' => $record['position'],
+            	'what' => $what
+            	);
+        }
+
+        // render the page with the newly added data
+        $this->data['chat'] = $chats;
+        $this->data = array_merge($this->data, $source);
 		$this->render();
 	}
 }

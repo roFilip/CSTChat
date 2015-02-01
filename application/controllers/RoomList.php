@@ -20,16 +20,20 @@ class RoomList extends Application {
 	public function index()
 	{
 		$this->data['pagebody'] = 'roomlist';
-                
-                $source = $this->roomlists->all();
-                
-                $rooms = array();
-                foreach ($source as $record) {
-                    $rooms[] = array('name' => $record['name'], 'capacity' => $record['capacity'], 'link' => $record['link']);
-                }
-                $this->data['rooms'] = $rooms;
-                
-                
+        
+        // retrieve all of the rooms available
+        $source = $this->roomlists->all();
+        
+        $rooms = array();
+        
+        // populate the rooms array
+        foreach ($source as $record)
+        {
+            $rooms[] = array('name' => $record['name'], 'capacity' => $record['capacity'], 'link' => $record['link']);
+        }
+        
+        // render the page with the newly added data
+        $this->data['rooms'] = $rooms;
 		$this->render();
 	}
 }

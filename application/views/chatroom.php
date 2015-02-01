@@ -1,19 +1,19 @@
 <h1>Data Comm 2015</h1>
 
 <div id="body">
-    {chat}
     <ul>
+    {chat}
         <li>
             <div class="{position}">
             {what}
             </div>
         </li>
-    </ul>
     {/chat}
+    </ul>
 </div>
 
 <div id="msgbox">
-<form action="post">
+<form action="chatroom" method="post" autocomplete="off">
     <div class="msgboxelement msgtextarea">
         <input type="text" name="msg" class="floatleft">
     </div>
