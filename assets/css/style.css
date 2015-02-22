@@ -95,7 +95,7 @@ p.footer {
     top: 0;
     width: 100%;
     border-bottom: rgb(18, 18, 18);
-    border-bottom-style: inset;
+    border-bottom-style: solid;
 }
 .myhead {color:#0A65C9;font-size:40px;font-weight:bold;padding:0px;margin:0px; }
 
