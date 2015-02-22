@@ -10,16 +10,16 @@ class Chat extends CI_Model {
 
     // The data comes from http://www.quotery.com/top-100-funny-quotes-of-all-time/?PageSpeed=noscript
     var $data = array(
-        array('id' => '1', 'who' => 'Student1', 'pic' => 'profile_placeholder_25.png', 'where'=>'/chatroom',
-            'what' => 'I need ze help on win32 plis!.', 'position' => 'rightchat'),
-        array('id' => '2', 'who' => 'Student2', 'pic' => 'profile_placeholder_25.png', 'where'=>'/chatroom',
-            'what' => 'Im struggling as well.', 'position' => 'leftchat'),
-        array('id' => '3', 'who' => 'student1', 'pic' => 'profile_placeholder_25.png', 'where'=>'/chatroom',
-            'what' => 'How are you supposed to get the text from an edit box??', 'position' => 'rightchat'),
-        array('id' => '4', 'who' => 'student2', 'pic' => 'profile_placeholder_25.png', 'where'=>'/chatroom',
-            'what' => ' idk... black magic?”', 'position' => 'leftchat'),
-        array('id' => '5', 'who' => 'student2', 'pic' => 'profile_placeholder_25.png', 'where'=>'/chatroom',
-            'what' => 'it always works!', 'position' => 'leftchat')
+        array('id' => '1', 'who' => 'Student1', 'pic' => 'profile_placeholder_25.png',
+            'what' => 'I need ze help on win32 plis!.'),
+        array('id' => '2', 'who' => 'Student2', 'pic' => 'profile_placeholder_25.png',
+            'what' => 'Im struggling as well.'),
+        array('id' => '3', 'who' => 'Student1', 'pic' => 'profile_placeholder_25.png',
+            'what' => 'How are you supposed to get the text from an edit box??'),
+        array('id' => '4', 'who' => 'Student2', 'pic' => 'profile_placeholder_25.png',
+            'what' => ' idk... black magic?”'),
+        array('id' => '5', 'who' => 'Student2', 'pic' => 'profile_placeholder_25.png',
+            'what' => 'it always works!')
     );
 
     // Constructor

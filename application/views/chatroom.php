@@ -4,8 +4,14 @@
     <ul>
     {chat}
         <li>
-            <div class="{position}">
-            {what}
+            <div class="chat">
+            <img src="assets/img/{pic}"/>
+            <span class="chatusername">
+                {who}:
+            </span>
+            <span class="chattext">
+                {what}
+            </span>
             </div>
         </li>
     {/chat}

@@ -32,19 +32,10 @@ class ChatRoom extends Application {
 
         // populate the chats array
         foreach ($source as $record) {
-        	$what = ''; // holder for the 'what' data
-
-        	// fill the appropriate information into 'what' according to its position
-        	if ($record['position'] == 'leftchat')
-        		$what = '<img src="assets/data/' . $record['pic'] . '" height="50%"/>' . '<span class="chattext">' . $record['what'] . '</span>';
-        	else if ($record['position'] == 'rightchat')
-        		$what = '<span class="chattext">' . $record['what'] . '</span>' . '<img src="assets/data/' . $record['pic'] . '" height="50%"/>';
-
             $chats[] = array(
+                'pic' => $record['pic'],
             	'who' => $record['who'],
-            	'href' => $record['where'],
-            	'position' => $record['position'],
-            	'what' => $what
+            	'what' => $record['what']
             	);
         }
 
