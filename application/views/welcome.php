@@ -1,7 +1,7 @@
 <table cols="3" class="login">
-    <form action="post">
-        Username: <input type="text" name="usrname"><br>
-        Password: <input type="password" name="pwrd"><br>
+    <form action="post" class="centerize">
+        <input type="text" placeholder="Username" name="usrname"><br/><br/>
+        <input type="password" placeholder="Password" name="pwrd"><br/><br/>
         <input type="submit" value="Login">
     </form>
     <p>

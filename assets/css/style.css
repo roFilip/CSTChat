@@ -19,11 +19,10 @@ a {
 h1 {
         color: #ddd;
         background-color: transparent;
-        border-bottom: 1px solid #0A65C9;
-        font-size: 19px;
-        font-weight: normal;
+        border-bottom: solid 5px #0A65C9;
+        font-weight: bold;
         margin: 0 0 14px 0;
-        padding: 14px 15px 10px 15px;
+        padding: 0 0 7px 0;
 }
 
 code {
@@ -46,6 +45,21 @@ ul {
 
 li {
     padding: 0.5em 0 0.5em 0;
+}
+
+input {
+    padding: 10px;
+    background-color: #20282D;
+    border: solid 5px rgb(8,8,8);
+    color: #fff;
+    font-weight: bold;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
 }
 
 #body {
@@ -73,13 +87,29 @@ p.footer {
 }
 
 #wrapper {height: 100vh;}
-#header {display:block; text-align: center; background-color: #222; box-shadow:0 0 5px 5px #080808;
-top: 0;
-width: 100%;}
+#header {
+    display:block;
+    text-align: center;
+    background-color: #222;
+    box-shadow:0 0 5px 5px #080808;
+    top: 0;
+    width: 100%;
+    border-bottom: rgb(18, 18, 18);
+    border-bottom-style: inset;
+}
 .myhead {color:#0A65C9;font-size:40px;font-weight:bold;padding:0px;margin:0px; }
 
-#content {max-width: 960px; margin:0 auto; border-left-style: solid; border-right-style: solid; border-bottom-style: solid; border-width: 1px;
-	font-family:  Arial, Helvetica, sans-serif;font-size: 13px;color: #F1F5F8; border-color: #0A65C9; }
+#content {
+    max-width: 960px; margin:0 auto;
+    background-color: rgb(11, 11, 11);
+    border: solid 5px #c9c9c9;
+    border-color: rgb(8,8,8);
+    border-top-style: none;
+	font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    color: #F1F5F8;
+    padding: 3em;
+}
 
 .mynav {float:right}
 .mynav ul {list-style-type:none; padding-top:20px;font-size: 120%;}
@@ -87,6 +117,12 @@ width: 100%;}
 .mynav a {text-decoration:none;color:purple; font-weight:bold;}
 .mynav a:hover  {background-color: lavender}
 
-#footer {font-family: Arial, Verdana, Helvetica ; font-size: 9pt; font-style:italic; text-align:center;position: fixed;
+#footer {
+    font-family: Arial, Verdana, Helvetica ; font-size: 9pt; font-style:italic; text-align:center;position: fixed;
     bottom: 0;
-    width: 100%;}
+    width: 100%;
+}
+
+.centerize {
+    text-align: center;
+}
