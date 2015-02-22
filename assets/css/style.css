@@ -47,6 +47,21 @@ li {
     padding: 0.5em 0 0.5em 0;
 }
 
+input {
+    padding: 10px;
+    background-color: #20282D;
+    border: solid 5px rgb(8,8,8);
+    color: #fff;
+    font-weight: bold;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
 #body {
         margin: 0 15px 0 15px;
 }
@@ -102,6 +117,12 @@ p.footer {
 .mynav a {text-decoration:none;color:purple; font-weight:bold;}
 .mynav a:hover  {background-color: lavender}
 
-#footer {font-family: Arial, Verdana, Helvetica ; font-size: 9pt; font-style:italic; text-align:center;position: fixed;
+#footer {
+    font-family: Arial, Verdana, Helvetica ; font-size: 9pt; font-style:italic; text-align:center;position: fixed;
     bottom: 0;
-    width: 100%;}
+    width: 100%;
+}
+
+.centerize {
+    text-align: center;
+}
