@@ -19,7 +19,7 @@ class RoomLists extends CI_Model {
 
     // Constructor
     public function __construct() {
-        parent::__construct();
+        parent::__construct('rooms', 'id');
     }
 
     // retrieve a single chat
