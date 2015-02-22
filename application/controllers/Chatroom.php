@@ -26,22 +26,24 @@ class ChatRoom extends Application {
 		$this->data['pagebody'] = 'chatroom';
 
 		// retrieve all of the chats available
-        $source = $this->chat->all();
-        
-        $chats = array();
+                $source = $this->chat->all();
+                
 
-        // populate the chats array
-        foreach ($source as $record) {
-            $chats[] = array(
-                'pic' => $record['pic'],
-            	'who' => $record['who'],
-            	'what' => $record['what']
-            	);
-        }
 
-        // render the page with the newly added data
-        $this->data['chat'] = $chats;
-        $this->data = array_merge($this->data, $source);
+                // populate the chats array
+                foreach ($source as $record) {
+                    
+                    
+                     $chats[] = array(
+                        'who' =>   $record->usr_id,
+                        'what' =>   $record->text
+                        );
+                 }
+                 
+                 $this->data['chat'] = $chats;
+                $this->data = array_merge($this->data, $chats);
+
+                // render the page with the newly added data
 		$this->render();
 	}
 }
