@@ -31,7 +31,4 @@ class RoomLists extends MY_Model {
     public function getAll() {
         return $this->all();
     }
-    public function createRoom() {
-        
-    }
 }

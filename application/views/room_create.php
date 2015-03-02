@@ -7,6 +7,7 @@
         <form action="/roomlist/confirm" method="post">
              {fid}
              {fname}
+             {fvisibility}
              {fsubmit}
         </form>
     </div>
