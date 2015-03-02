@@ -13,7 +13,14 @@ class RoomList extends Application {
 
         // retrieve all of the rooms available
         $source = $this->roomlists->all();
-
+        
+        foreach($source as $record) {
+            if ($record->link == "Private") {
+                $record->link = "Cannot Join";
+            } else {
+                $record->link = "Join";
+            }
+        }
         // render the page with the newly added data
         $this->data['rooms'] = $source;
         
