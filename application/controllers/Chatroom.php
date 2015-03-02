@@ -1,11 +1,16 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+$currentRoom = 0;
+
 class ChatRoom extends Application {
+
+	
     
     function __construct() {
         parent::__construct();
     }
-
+    
+    
 	/**
 	 * Index Page for this controller.
 	 *
@@ -25,27 +30,49 @@ class ChatRoom extends Application {
 	{
 		$this->data['pagebody'] = 'chatroom';
 
+		
+	}
+
+	function display($roomnum)
+	{
+		global $currentRoom;
+		$currentRoom = $roomnum;
+
+		$this->data['pagebody'] = 'chatroom';
 		// retrieve all of the chats available
-                $source = $this->chat->all();
-                
+        $source = $this->chat->some('room_id', $roomnum);
+        
+        $chats = array();
 
-
-                // populate the chats array
-                foreach ($source as $record) {
-                    
-                    
-                     $chats[] = array(
-                        'who' =>   $record->usr_id,
-                        'what' =>   $record->text
-                        );
-                 }
-                 
-                 $this->data['chat'] = $chats;
-                $this->data = array_merge($this->data, $chats);
+        // populate the chats array
+        foreach ($source as $record) {
+            
+            
+             $chats[] = array(
+                'who' =>   $record->usr_id,
+                'what' =>   $record->text
+                );
+         }
+         
+        $this->data['chat'] = $chats;
+        $this->data = array_merge($this->data, $chats);
 
                 // render the page with the newly added data
 		$this->render();
 	}
+
+	function add() {
+		global $currentRoom;
+	    $msg = $this->chat->create();
+	    $msg->usr_id = 1;
+	    $msg->text = $this->input->post('msg');
+	    $msg->room_id = $currentRoom;
+
+	    $this->chat->add($msg);
+
+	    redirect('/roomlist/'.$currentRoom);
+  	}
+
 }
 
 /* End of file roomlist.php */

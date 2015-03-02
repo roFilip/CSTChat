@@ -17,13 +17,15 @@
     </ul>
 </div>
 
+
+
 <div id="msgbox">
-<form action="chatroom" method="post" autocomplete="off">
+<form action="/chatroom/add" method="post" autocomplete="off">
     <div class="msgboxelement msgtextarea">
-        <input type="text" name="msg" class="floatleft">
+      <input type="text" name="msg" class="floatleft">
     </div>
     <div class="msgboxelement msgsendbtn">
-        <input type="submit" value="Send" class="floatright">
+         <input type="submit" value="Send" class="floatright">
     </div>
 </form>
 </div>
