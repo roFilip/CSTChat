@@ -1,5 +1,5 @@
-<table cols="3" class="login">
-    <form action="post" class="centerize">
+<table class="login">
+    <form class="centerize" action="/login/confirm" method="post">
         <input type="text" placeholder="Username" name="usrname"><br/><br/>
         <input type="password" placeholder="Password" name="pwrd"><br/><br/>
         <input type="submit" value="Login">
