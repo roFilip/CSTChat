@@ -1,77 +1,53 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-$currentRoom = 0;
-
 class ChatRoom extends Application {
-
-	
-    
+   
     function __construct() {
         parent::__construct();
+        $this->load->library('session');
     }
-    
-    
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -  
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in 
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see http://codeigniter.com/user_guide/general/urls.html
-	 */
-	public function index()
-	{
-		$this->data['pagebody'] = 'chatroom';
 
-		
-	}
+    public function index()
+    {
+        $this->data['pagebody'] = 'chatroom';
+    }
 
-	function display($roomnum)
-	{
-		global $currentRoom;
-		$currentRoom = $roomnum;
-
-		$this->data['pagebody'] = 'chatroom';
-		// retrieve all of the chats available
+    function display($roomnum)
+    {
+        $this->data['pagebody'] = 'chatroom';
+        // retrieve all of the chats available
         $source = $this->chat->some('room_id', $roomnum);
-        
+
+        $this->session->set_userdata('currentRoom', $roomnum);
+
         $chats = array();
 
         // populate the chats array
         foreach ($source as $record) {
-            
-            
              $chats[] = array(
                 'who' =>   $record->usr_id,
                 'what' =>   $record->text
                 );
          }
-         
+
         $this->data['chat'] = $chats;
         $this->data = array_merge($this->data, $chats);
 
-                // render the page with the newly added data
-		$this->render();
-	}
+            // render the page with the newly added data
+        $this->render();
+    }
 
-	function add() {
-		global $currentRoom;
-	    $msg = $this->chat->create();
-	    $msg->usr_id = 1;
-	    $msg->text = $this->input->post('msg');
-	    $msg->room_id = $currentRoom;
+    function add() {
+        $currentRoom = $this->session->userdata('currentRoom');
+        $msg = $this->chat->create();
+        $msg->usr_id = 1;
+        $msg->text = $this->input->post('msg');
+        $msg->room_id = $currentRoom;
 
-	    $this->chat->add($msg);
+        $this->chat->add($msg);
 
-	    redirect('/roomlist/'.$currentRoom);
-  	}
+        redirect('/roomlist/'.$currentRoom);
+    }
 
 }
 

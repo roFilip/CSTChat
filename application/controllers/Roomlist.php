@@ -39,7 +39,7 @@ class RoomList extends Application {
         
         $this->data['pagebody'] = 'room_create';
         $this->data['fid'] = makeTextField('ID#', 'id', $room->id, 
-                "Unique quote identifier, system-assigned",10,10,false);
+                "Unique quote identifier, system-assigned",10,10,true);
         $this->data['fname'] = makeTextField('Room Name', 'name', $room->name);
         $this->data['fvisibility'] = makeTextField('Visibility', 'link', $room->link);
         $this->data['fsubmit'] = makeSubmitButton('Process Room', 
