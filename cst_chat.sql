@@ -2,8 +2,8 @@
 -- version 4.2.11
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Mar 02, 2015 at 01:00 AM
+-- Host: 127.0.0.1
+-- Generation Time: Mar 02, 2015 at 03:31 AM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -53,8 +53,9 @@ INSERT INTO `messages` (`id`, `text`, `usr_id`, `room_id`) VALUES
 CREATE TABLE IF NOT EXISTS `rooms` (
 `id` int(11) NOT NULL,
   `name` text NOT NULL,
-  `usr_count` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `usr_count` int(11) NOT NULL,
+  `link` varchar(15) DEFAULT NULL
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -110,7 +111,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 -- AUTO_INCREMENT for table `rooms`
 --
 ALTER TABLE `rooms`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `users`
 --
