@@ -1,6 +1,5 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-$currentRoom = 0;
 
 class ChatRoom extends Application {
 
@@ -8,6 +7,7 @@ class ChatRoom extends Application {
     
     function __construct() {
         parent::__construct();
+        //$this->load->library('session');
     }
     
     
@@ -35,12 +35,13 @@ class ChatRoom extends Application {
 
 	function display($roomnum)
 	{
-		global $currentRoom;
-		$currentRoom = $roomnum;
-
 		$this->data['pagebody'] = 'chatroom';
 		// retrieve all of the chats available
         $source = $this->chat->some('room_id', $roomnum);
+
+        $this->session->set_userdata('currentRoom', $roomnum);
+
+        echo $this->session->userdata('currentRoom');
         
         $chats = array();
 
@@ -61,8 +62,9 @@ class ChatRoom extends Application {
 		$this->render();
 	}
 
-	function add() {
-		global $currentRoom;
+	function add()
+	{
+		$currentRoom = $this->input->get('currentRoom');
 	    $msg = $this->chat->create();
 	    $msg->usr_id = 1;
 	    $msg->text = $this->input->post('msg');
@@ -70,7 +72,7 @@ class ChatRoom extends Application {
 
 	    $this->chat->add($msg);
 
-	    redirect('/roomlist/'.$currentRoom);
+	    //redirect('/roomlist/'.$currentRoom);
   	}
 
 }

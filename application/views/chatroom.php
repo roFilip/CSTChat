@@ -20,7 +20,7 @@
 
 
 <div id="msgbox">
-<form action="/chatroom/add" method="post" autocomplete="off">
+<form action="/chatroom/add/" method="post" autocomplete="off">
     <div class="msgboxelement msgtextarea">
       <input type="text" name="msg" class="floatleft">
     </div>
