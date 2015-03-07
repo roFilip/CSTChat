@@ -72,7 +72,7 @@ class ChatRoom extends Application {
 
 	    $this->chat->add($msg);
 
-	    //redirect('/roomlist/'.$currentRoom);
+	    redirect('/roomlist/'.$currentRoom);
   	}
 
 }
