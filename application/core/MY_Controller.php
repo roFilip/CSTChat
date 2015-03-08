@@ -17,6 +17,7 @@ class Application extends CI_Controller {
     function __construct()
     {
         parent::__construct();
+        session_start();
         $this->data = array();
         $this->data['pagetitle'] = 'CST Chat';
     }

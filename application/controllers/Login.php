@@ -29,6 +29,8 @@ class Login extends Application
         $this->errors = array();
 
         $this->display();
+
+        echo 'usr: ' . $this->session->userdata('username');
     }
 
     function confirm()
@@ -57,6 +59,8 @@ class Login extends Application
                         'logged_in'     => TRUE
                 ));
             }
+
+            redirect('/roomlist');
         }
 
         $this->display();
