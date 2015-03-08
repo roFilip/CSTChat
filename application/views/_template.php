@@ -12,6 +12,7 @@
         <div id="wrapper">
             <div id="header">
                 <a href="/" class="myhead">CST Chat</a>
+                <a href="/admin" class ="adminlink">admin page</a>
                 <span class="mynav">
                     <ul>
                       
