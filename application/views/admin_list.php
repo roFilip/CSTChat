@@ -7,12 +7,12 @@
   <tr>
     <td>{id}</td>
     <td>{roomname}</td>
+    <td><a href='/admin/updateRoom/{id}'>Update room</a></td>
+    <td><a href='/admin/deleteRoom/{id}'>Delete Room</a></td>
   </tr>
   {/rooms}
 </table>
-<a href='/admin/addRoom'>Add new room</a> 
-<a href='/admin/updateRoom'>Update room</a> 
-<a href='/admin/deleteRoom'>Delete Room</a> 
+<a href='/roomlist/add'>Add new room</a>
 
 <table cols="" border="0">
   <tr>
@@ -25,10 +25,10 @@
     <td>{id}</td>
     <td>{who}</td>
     <td>{pic}</td>
+    <td><a href='/admin/updateUser/{id}'>Update user</a></td>
+    <td><a href='/admin/deleteUser/{id}'>Delete user</a></td>
   </tr>
   {/users}
 </table>
 
 <a href='/admin/addUser'>Add user</a> 
-<a href='/admin/updateUser'>Update user</a> 
-<a href='/admin/deleteUser'>Delete user</a> 

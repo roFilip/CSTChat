@@ -1,41 +1,51 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php
 
-class RoomList extends Application {
-
-    function __construct() {
-        parent::__construct();
+/**
+ * Description of Admin
+ *
+ * @author Thomas
+ */
+class Admin extends Application {
+    
+    function __construct()
+    {
+	parent::__construct();
         $this->load->helper('formfields');
     }
 
-    public function index()
-    {
-        $this->data['pagebody'] = 'roomlist';
+    //-------------------------------------------------------------
+    //  The normal pages
+    //-------------------------------------------------------------
 
-        // retrieve all of the rooms available
-        $source = $this->roomlists->all();
+    function index() {
+        $this->data['pagebody'] = 'admin_list'; 
         
-        foreach($source as $record) {
-            if ($record->link == "Private") {
-                $record->link = "Cannot Join";
-            } else {
-                $record->link = "Join";
-            }
-        }
+        $rooms = $this->roomlists->getAll();
+      
         // render the page with the newly added data
-        $this->data['rooms'] = $source;
+        $this->data['rooms'] = $rooms;
+        
+        $users = $this->users->all();
+        
+        // render the page with the newly added data
+        $this->data['users'] = $users;
         
         $this->render();
     }
-        
-    public function add() {
+    
+    function updateRoom($roomno) {
         $room = $this->roomlists->create();
-        $this->present($room);
+        $room->id = $roomno;
+        $this->present($room, $roomno);
+    }
+    
+    function deleteRoom($roomno) {
+        $this->roomlists->delete($roomno);
     }
     
     function present($room) {
         $this->data['pagebody'] = 'room_create';
-        
-        $this->data['class'] = 'roomlist';
+        $this->data['class'] = 'admin';
         
         $message = '';
         $this->data['message'] = $message;
@@ -46,10 +56,9 @@ class RoomList extends Application {
         $this->data['fvisibility'] = makeTextField('Visibility', 'link', $room->link);
         $this->data['fsubmit'] = makeSubmitButton('Process Room', 
                 "Click here to validate the room data", 'btn-success');
-        
         $this->render();
     }
-    
+
     function confirm() {
         $record = $this->roomlists->create();
         // Extract submitted fields
@@ -63,9 +72,14 @@ class RoomList extends Application {
             $this->roomlists->update($record);
         }
         
-        redirect('/roomlist');
+        redirect('/admin');
+    }
+    
+    function updateUser($userno) {
+        
+    }
+    
+    function deleteUser($userno) {
+        $this->users->delete($userno);
     }
 }
-
-/* End of file roomlist.php */
-/* Location: ./application/controllers/RoomList.php */
