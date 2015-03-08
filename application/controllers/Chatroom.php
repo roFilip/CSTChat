@@ -64,7 +64,7 @@ class ChatRoom extends Application {
 
 	function add()
 	{
-		$currentRoom = $this->input->get('currentRoom');
+		$currentRoom = $this->session->userdata('currentRoom');
 	    $msg = $this->chat->create();
 	    $msg->usr_id = 1;
 	    $msg->text = $this->input->post('msg');
