@@ -33,17 +33,20 @@ class RoomList extends Application {
     }
     
     function present($room) {
+        $this->data['pagebody'] = 'room_create';
+        
+        $this->data['class'] = 'roomlist';
+        
         $message = '';
-
         $this->data['message'] = $message;
         
-        $this->data['pagebody'] = 'room_create';
         $this->data['fid'] = makeTextField('ID#', 'id', $room->id, 
                 "Unique quote identifier, system-assigned",10,10,true);
         $this->data['fname'] = makeTextField('Room Name', 'name', $room->name);
         $this->data['fvisibility'] = makeTextField('Visibility', 'link', $room->link);
         $this->data['fsubmit'] = makeSubmitButton('Process Room', 
                 "Click here to validate the room data", 'btn-success');
+        
         $this->render();
     }
     

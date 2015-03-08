@@ -20,15 +20,8 @@ class Admin extends Application {
     function index() {
         $this->data['pagebody'] = 'admin_list'; 
         
-        $rooms = $this->roomlists->all();
-        
-        foreach($rooms as $record) {
-            if ($record->link == "Private") {
-                $record->link = "Cannot Join";
-            } else {
-                $record->link = "Join";
-            }
-        }
+        $rooms = $this->roomlists->getAll();
+      
         // render the page with the newly added data
         $this->data['rooms'] = $rooms;
         
@@ -40,51 +33,53 @@ class Admin extends Application {
         $this->render();
     }
     
-    function addUser() {
-        
+    function updateRoom($roomno) {
+        $room = $this->roomlists->create();
+        $room->id = $roomno;
+        $this->present($room, $roomno);
     }
     
-    function present($user) {
+    function deleteRoom($roomno) {
+        $this->roomlists->delete($roomno);
+    }
+    
+    function present($room) {
+        $this->data['pagebody'] = 'room_create';
+        $this->data['class'] = 'admin';
+        
         $message = '';
-        if (count($this->errors) > 0) {
-          foreach ($this->errors as $booboo)
-            $message .= $booboo;
-        }
         $this->data['message'] = $message;
-  
-        $this->data['fid'] = makeTextField('ID#', 'id', $quote->id, 
+        
+        $this->data['fid'] = makeTextField('ID#', 'id', $room->id, 
                 "Unique quote identifier, system-assigned",10,10,true);
-        $this->data['fwho'] = makeTextField('Author', 'who', $quote->who);
-        $this->data['fmug'] = makeTextField('Picture', 'mug', $quote->mug);
-        $this->data['fwhat'] = makeTextArea('The Quote', 'what', $quote->what);
-        $this->data['pagebody'] = 'quote_edit';
-        $this->data['fsubmit'] = makeSubmitButton('Process Quote', 
-                "Click here to validate the quotation data", 'btn-success');
+        $this->data['fname'] = makeTextField('Room Name', 'name', $room->name);
+        $this->data['fvisibility'] = makeTextField('Visibility', 'link', $room->link);
+        $this->data['fsubmit'] = makeSubmitButton('Process Room', 
+                "Click here to validate the room data", 'btn-success');
         $this->render();
     }
-    
+
     function confirm() {
-        $record = $this->quotes->create();
+        $record = $this->roomlists->create();
         // Extract submitted fields
         $record->id = $this->input->post('id');
-        $record->who = $this->input->post('who');
-        $record->mug = $this->input->post('mug');
-        $record->what = $this->input->post('what');   
+        $record->name = $this->input->post('name');
+        $record->link = $this->input->post('link');
         
-        if (empty($record->who))
-            $this->errors[] = 'You must specify an author.';
-        if (strlen($record->what) < 20)
-            $this->errors[] = 'A quotation must be at least 20 characters long.';
-        
-        if (count($this->errors) > 0) {
-            $this->present($record);
-            return; // make sure we don't try to save anything
+        if (empty($record->id)) {
+            $this->roomlists->add($record);
+        } else { 
+            $this->roomlists->update($record);
         }
-  
-        if (empty($record->id)) 
-            $this->quotes->add($record);
-        else 
-            $this->quotes->update($record);
+        
         redirect('/admin');
+    }
+    
+    function updateUser($userno) {
+        
+    }
+    
+    function deleteUser($userno) {
+        $this->users->delete($userno);
     }
 }
