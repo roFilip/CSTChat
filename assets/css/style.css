@@ -98,6 +98,7 @@ p.footer {
     border-bottom-style: solid;
 }
 .myhead {color:#0A65C9;font-size:40px;font-weight:bold;padding:0px;margin:0px; }
+.adminlink {color:#0A65C9;font-size:20px;font-weight:bold;padding:0px;margin:0px; float:right; }
 
 #content {
     max-width: 960px; margin:0 auto;
