@@ -102,15 +102,18 @@ p.footer {
 .logout {color:#0A65C9;font-size:20px;font-weight:bold;padding:5px;margin:0px; float:right; }
 
 #content {
-    max-width: 960px; margin:0 auto;
-    background-color: rgb(11, 11, 11);
+    max-width: 960px; margin: auto;
+    background-color: #000000;
+    box-shadow: 10px 10px 5px #888888;
     border: solid 5px #c9c9c9;
+    border-radius: 25px;
     border-color: rgb(8,8,8);
     border-top-style: none;
 	font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
     color: #F1F5F8;
     padding: 3em;
+    margin-top: 7em
 }
 
 .mynav {float:right}
