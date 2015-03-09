@@ -24,7 +24,7 @@ class ChatRoom extends Application {
 
         $chats = array();
 
-        $user = $this->users->get($record->usr_id);
+        $user = $this->users->getByID($record->usr_id);
 
         // populate the chats array
         foreach ($source as $record) {
