@@ -5,6 +5,7 @@
     {chat}
         <li>
             <div class="chat">
+                <img src="data:image/jpeg;base64,{pic}" />
                 <span class="chatusername">
                     {who}:
                 </span>
