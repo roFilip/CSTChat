@@ -25,10 +25,10 @@ class Admin extends Application {
         // render the page with the newly added data
         $this->data['rooms'] = $rooms;
         
-        $users = $this->users->all();
+        //$users = $this->users->all();
         
         // render the page with the newly added data
-        $this->data['users'] = $users;
+       // $this->data['users'] = $users;
         
         $this->render();
     }
@@ -41,6 +41,12 @@ class Admin extends Application {
     
     function deleteRoom($roomno) {
         $this->roomlists->delete($roomno);
+        redirect('/admin');
+    }
+
+      public function addroom() {
+        $room = $this->roomlists->create();
+        $this->present($room);
     }
     
     function present($room) {
