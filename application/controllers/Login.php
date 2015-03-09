@@ -61,7 +61,7 @@ class Login extends Application
 
         if ($success)
         {
-            $user = $this->users->get($username, $password);
+            $user = $this->users->getByUsrPass($username, $password);
             
             if ($user == null)
             {

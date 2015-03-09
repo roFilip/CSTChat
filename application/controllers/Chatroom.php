@@ -20,19 +20,17 @@ class ChatRoom extends Application {
 
         $this->session->set_userdata('currentRoom', $roomnum);
 
-        echo $this->session->userdata('currentRoom');
-
         $chats = array();
-
-        $user = $this->users->getByID($record->usr_id);
 
         // populate the chats array
         foreach ($source as $record) {
-             $chats[] = array(
-             	'pic' => base64_encode($user->picture),
+            $user = $this->users->getByID($record->usr_id);
+            
+            $chats[] = array(
+                'pic' => base64_encode($user->picture),
                 'who' =>   $user->username,
                 'what' =>   $record->text
-                );
+            );
          }
 
         $this->data['chat'] = $chats;

@@ -12,7 +12,7 @@ class Users extends MY_Model {
     // validates the user based on their username and password
     // returns the correct user data if they exist in the database
     // returns null otherwise
-    public function get($username, $password) {
+    public function getByUsrPass($username, $password) {
         $query = $this->db->select('*')
             ->from($this->_tableName)
             ->where('username', $username)
@@ -26,7 +26,7 @@ class Users extends MY_Model {
 
     // gets a single user from its userid
     public function getByID($userid) {
-        return get($userid);
+        return $this->get($userid);
     }
 
     // gets a single user from its username
