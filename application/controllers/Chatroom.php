@@ -12,7 +12,7 @@ class ChatRoom extends Application {
         $this->data['pagebody'] = 'chatroom';
     }
 
-    function display($roomnum)
+	function display($roomnum)
     {
         $this->data['pagebody'] = 'chatroom';
         // retrieve all of the chats available
@@ -39,7 +39,7 @@ class ChatRoom extends Application {
             // render the page with the newly added data
         $this->render();
     }
-
+    
     function add()
     {
         $currentRoom = $this->session->userdata('currentRoom');
