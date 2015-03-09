@@ -93,6 +93,7 @@ class Login extends Application
 
         $user->username = $this->input->post('username');
         $user->password = $this->input->post('password');
+        $user->picture = $this->do_upload($this->input->post('picture'));
 
         if (empty($user->username))
         {
@@ -104,8 +105,11 @@ class Login extends Application
             $this->errors[] = "Enter your password.";
             $success = FALSE;
         }
-
-        $user->picture;
+        else if (!$user->picture)
+        {
+            $this->errors[] = "Picture not found.";
+            $success = FALSE;
+        }
 
         if ($success)
         {
@@ -116,5 +120,28 @@ class Login extends Application
         }
 
         return $success;
+    }
+
+    public function do_upload($path)
+    {
+        $config = array(
+        'upload_path' => $path,
+        'allowed_types' => "gif|jpg|png|jpeg|pdf",
+        'overwrite' => TRUE,
+        'max_size' => "131072000",
+        'max_height' => "25",
+        'max_width' => "25"
+        );
+
+        $this->load->library('upload', $config);
+
+        if($this->upload->do_upload())
+        {
+            return $this->upload->data();
+        }
+        else
+        {
+            return null;
+        }
     }
 }
