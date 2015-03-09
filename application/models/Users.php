@@ -4,15 +4,15 @@ class Users extends MY_Model {
     protected $_tableName;
 
     // Constructor
-    function __construct($tablename = 'users') {
-        parent::__construct($tablename);
-        $this->_tableName = $tablename;
+    function __construct() {
+        $this->_tableName = 'users';
+        parent::__construct($this->_tableName);
     }
 
     // validates the user based on their username and password
     // returns the correct user data if they exist in the database
     // returns null otherwise
-    public function validate($username, $password) {
+    public function get($username, $password) {
         $query = $this->db->select('*')
             ->from($this->_tableName)
             ->where('username', $username)

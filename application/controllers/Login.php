@@ -17,7 +17,7 @@ class Login extends Application
         }
         else if ($this->input->post('button_create'))
         {
-
+            $this->create();
         }
 
         $this->data['title'] = 'Login';
@@ -26,9 +26,11 @@ class Login extends Application
         $errmsg = '';
         if (count($this->errors) > 0)
         {
-            foreach ($this->errors as $error) {
+            foreach ($this->errors as $error)
+            {
                 $errmsg .= $error . '<br/>';
             }
+            $errmsg .= '<br/>';
         }
 
         $this->data['errmsg'] = $errmsg;
@@ -58,7 +60,7 @@ class Login extends Application
 
         if ($success)
         {
-            $user = $this->users->validate($username, $password);
+            $user = $this->users->get($username, $password);
             
             if ($user == null)
             {
@@ -80,5 +82,14 @@ class Login extends Application
         }
 
         return $success;
+    }
+
+    private function create()
+    {
+        $user = $this->users->create();
+
+        $user->username = $this->input->post('username');
+        $user->password = $this->input->post('password');
+        $user->picture;
     }
 }
