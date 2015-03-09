@@ -29,8 +29,8 @@ class ChatRoom extends Application {
         // populate the chats array
         foreach ($source as $record) {
              $chats[] = array(
-             	'pic' => base64_encode($user->picture),
-                'who' =>   $user->username,
+             	'pic' => 	base64_encode($user->picture),
+                'who' =>   	$user->username,
                 'what' =>   $record->text
                 );
          }

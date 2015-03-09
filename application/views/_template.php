@@ -6,7 +6,8 @@
         <link rel="stylesheet" type="text/css" media="all" href="/assets/css/style.css" />
         <link rel="stylesheet" type="text/css" media="all" href="/assets/css/chatroom.css" />
         <link rel="stylesheet" type="text/css" media="all" href="/assets/css/text.css" />
-        <link rel="stylesheet" type="text/css" media="all" href="/assets/css/lightbox.css" />
+
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     </head>
     <body>
         <div id="wrapper">
@@ -28,6 +29,8 @@
             </div>
         </div>
         <script type="text/javascript" src="/assets/js/jquery-1.11.0.min.js"></script> 
-        <script type="text/javascript" src="/assets/js/lightbox.min.js"></script> 
+        <script type="text/javascript" src="/assets/js/lightbox.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     </body>
 </html>
