@@ -132,3 +132,10 @@ p.footer {
     text-align: center;
 }
 
+table, td, th {
+    border: 1px solid white;
+}
+
+td {
+    padding:50px;
+}

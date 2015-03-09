@@ -1,4 +1,4 @@
-<table cols="" border="0">
+<table>
   <tr>
     <th>ID</th>
     <th>Room Name</th>
@@ -11,8 +11,9 @@
     <td><a href='/admin/deleteRoom/{id}'>Delete Room</a></td>
   </tr>
   {/rooms}
+  <a href='/admin/addroom'>Add new room</a>
 </table>
-<a href='/admin/addroom'>Add new room</a>
+
 
 <table cols="" border="0">
   <tr>
@@ -23,12 +24,11 @@
   {users}
   <tr>
     <td>{id}</td>
-    <td>{who}</td>
-    <td>{pic}</td>
+    <td>{username}</td>
+    <td>{picture}</td>
     <td><a href='/admin/updateUser/{id}'>Update user</a></td>
     <td><a href='/admin/deleteUser/{id}'>Delete user</a></td>
   </tr>
   {/users}
+  <a href='/admin/addUser'>Add user</a> 
 </table>
-
-<a href='/admin/addUser'>Add user</a> 
