@@ -17,7 +17,8 @@ class Login extends Application
         }
         else if ($this->input->post('button_create'))
         {
-            $this->create();
+            if ($this->create())
+                $this->errors[] = "Account created!";
         }
 
         $this->data['title'] = 'Login';
@@ -60,7 +61,7 @@ class Login extends Application
 
         if ($success)
         {
-            $user = $this->users->get($username, $password);
+            $user = $this->users->getByUsrPass($username, $password);
             
             if ($user == null)
             {
@@ -86,10 +87,34 @@ class Login extends Application
 
     private function create()
     {
+        $success = TRUE;
+
         $user = $this->users->create();
 
         $user->username = $this->input->post('username');
         $user->password = $this->input->post('password');
+
+        if (empty($user->username))
+        {
+            $this->errors[] = "Enter your username.";
+            $success = FALSE;
+        }
+        else if (empty($user->password))
+        {
+            $this->errors[] = "Enter your password.";
+            $success = FALSE;
+        }
+
         $user->picture;
+
+        if ($success)
+        {
+            if (!$this->users->getByUserName($user->username))
+                $this->users->add($user);
+            else
+                $this->users->update($user);
+        }
+
+        return $success;
     }
 }
