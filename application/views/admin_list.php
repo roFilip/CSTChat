@@ -6,13 +6,13 @@
   {rooms}
   <tr>
     <td>{id}</td>
-    <td>{roomname}</td>
+    <td>{name}</td>
     <td><a href='/admin/updateRoom/{id}'>Update room</a></td>
     <td><a href='/admin/deleteRoom/{id}'>Delete Room</a></td>
   </tr>
   {/rooms}
 </table>
-<a href='/roomlist/add'>Add new room</a>
+<a href='/admin/addroom'>Add new room</a>
 
 <table cols="" border="0">
   <tr>
