@@ -12,7 +12,7 @@ class ChatRoom extends Application {
         $this->data['pagebody'] = 'chatroom';
     }
 
-    function display($roomnum)
+	function display($roomnum)
     {
         $this->data['pagebody'] = 'chatroom';
         // retrieve all of the chats available
@@ -24,17 +24,11 @@ class ChatRoom extends Application {
 
         // populate the chats array
         foreach ($source as $record) {
-<<<<<<< HEAD
-             $chats[] = array(
-             	'pic' => 	base64_encode($user->picture),
-                'who' =>   	$user->username,
-=======
             $user = $this->users->getByID($record->usr_id);
             
             $chats[] = array(
                 'pic' => base64_encode($user->picture),
                 'who' =>   $user->username,
->>>>>>> bd604757a31de6301c37178daaf4cec081d6758e
                 'what' =>   $record->text
             );
          }
@@ -45,7 +39,7 @@ class ChatRoom extends Application {
             // render the page with the newly added data
         $this->render();
     }
-
+    
     function add()
     {
         $currentRoom = $this->session->userdata('currentRoom');
