@@ -25,10 +25,10 @@ class Admin extends Application {
         // render the page with the newly added data
         $this->data['rooms'] = $rooms;
         
-        //$users = $this->users->all();
+        $users = $this->users->all();
         
         // render the page with the newly added data
-       // $this->data['users'] = $users;
+        $this->data['users'] = $users;
         
         $this->render();
     }

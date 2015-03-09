@@ -13,6 +13,7 @@
             <div id="header">
                 <a href="/" class="myhead">CST Chat</a>
                 <a href="/admin" class ="adminlink">admin page</a>
+                <a href = "/logout" class = "logout">logout</a>
                 <span class="mynav">
                     <ul>
                       
